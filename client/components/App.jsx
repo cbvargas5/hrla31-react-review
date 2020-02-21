@@ -40,7 +40,7 @@ class App extends React.Component {
             </label>
             <label>
                 Last Name
-                <input onChange={this.onChangeHandler} type="text" name="firstName"/>
+                <input onChange={this.onChangeHandler} type="text" name="lastName"/>
             </label>
             <label>
                 <input type="submit"/>

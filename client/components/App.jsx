@@ -1,4 +1,5 @@
 import React from 'react';
+import List from './List.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -7,6 +8,8 @@ class App extends React.Component {
             firstName: '',
             lastName: ''
         }
+        this.onChangeHandler = this.onChangeHandler.bind(this);
+        // this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
     onChangeHandler(e) {
         this.setState({
@@ -14,19 +17,37 @@ class App extends React.Component {
         })
     }
 
+    // onSubmitHandler(e) {
+    //     e.preventDefault();
+    //     this.setState({
+    //         firstName: '',
+    //         lastName: ''
+    //     })
+    //     document.getElementById('nameForm')
+    // }
+
     render() {
         return (
         <div>
-            <form>
-                <label>
-                    First Name
-                    <input onChange={} type="text" name="firstName"/>
-                </label>
-                <label>
-                    Last Name
-                    <input onChange={} type="text" name="firstName"/>
-                </label>
-            </form>
+            {this.state.firstName === this.props.firstName && this.state.lastName === this.props.lastName 
+            ?
+            <List /> 
+            : 
+            <form id="nameForm" >
+            <label>
+                First Name
+                <input onChange={this.onChangeHandler} type="text" name="firstName"/>
+            </label>
+            <label>
+                Last Name
+                <input onChange={this.onChangeHandler} type="text" name="firstName"/>
+            </label>
+            <label>
+                <input type="submit"/>
+            </label>
+        </form>
+}
+
         </div>
         )
     }
